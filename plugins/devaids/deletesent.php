@@ -2,9 +2,15 @@
 
 ## need to ask for confirmation here
 
-return;
+#return;
+
+if (DEVVERSION) {
+    Sql_Verbose_Query("delete from {$tables["usermessage"]}");
+    foreach ($GLOBALS['plugins'] as $pluginName => $plugin) {
+      $plugin->deleteSent();
+    }
+} else {
+    print s('Only available in DEV versions');
+}
 
 
-Sql_Verbose_Query("delete from {$tables["usermessage"]}");
-Sql_Query("delete from {$tables["rssitem_user"]}");
-?>
