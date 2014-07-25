@@ -19,8 +19,22 @@ $mailinator_domains = array(
 'mailinator2.com',
 'notmailinator.com',
 'zippymail.info',
-'suremail.info'
+'suremail.info',
+
+## and a mailinator copycat
+'mytrashmail.com',
+'mt2014.com',
+'thankyou2010.com',
+'thankyou2010.com',
+'trash2009.com',
+'mt2009.com',
+'trashymail.com',
+'mytrashmail.com',
+
+## and another one
+'spamfree24.org',
 );
+
 
 
 if (!empty($_POST['prefix'])) {
@@ -87,13 +101,13 @@ if (!empty($_POST['prefix'])) {
 } else {
   
   print '<form action="" method="post" >';
-  print '<br/>Add new emails:';
-  print '<input type="text" name="newcount" value="" />';
-  print '<br/>Email prefix';
-  print '<input type="text" name="prefix" value="" />';
-  print '<br/>Email domain';
-  print '<input type="text" name="domain" value="" />';
-  print '<br/><input type="submit" name="go" value="Generate Emails" />';
+  print '<br/>Add how many?';
+  print '<input type="text" name="newcount" value="10000" />';
+  print '<br/>Prefix';
+  print '<input type="text" name="prefix" value="testing" />';
+#  print '<br/>Email domain';
+#  print '<input type="text" name="domain" value="" />';
+  print '<br/><input type="submit" name="go" value="Generate Test Subscribers" />';
   print '</form>';
 }
 
