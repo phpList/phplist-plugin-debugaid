@@ -4,7 +4,10 @@ class debugaid extends phplistPlugin {
   public $coderoot = "devaids/";
   public $version= "0.0.1";
   public $authors= "Bas Ovink";
-  
+
+    public $commandlinePluginPages = array(
+        'resetpwd','sanitise', 'devclicksandviews'
+    );
   public $topMenuLinks = array(
     'deletesent' => array('category' => 'develop'),
     'devemails' => array('category' => 'develop'),
@@ -15,18 +18,21 @@ class debugaid extends phplistPlugin {
     'devclicksandviews' => array('category' => 'develop'),
     'devbounces' => array('category' => 'develop'),
     'resetstats' => array('category' => 'develop'),
+    'sanitise' => array('category' => 'develop'),
+//      'dbadmin' => array('category'=> 'develop')
   );
   
   public $pageTitles = array(
     "deletesent" => "Delete all table entries that mark messages as sent to a user",
-    "devemails" => "Generate development emails",
+    "devemails" => "Generate development subscribers",
     "devattributes" => "Generate development attributes",
     "allconfirmed" => "Mark all confirmed",
     "createlists" => "Generate Lists",
-    "devmessages" => "Generate Messages",
+    "devmessages" => "Generate Campaigns",
     "devclicksandviews" => "Randomly fill clicks and views",
     "devbounces" => "Randomly bounce some messages",
     'resetstats' => 'Reset click statistics',
+    'sanitise' => 'Sanitise the database'
   );
 
   function debugaid() {
