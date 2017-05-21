@@ -27,6 +27,7 @@ $footer = '--
   ';
 
 output(s('Sanitise Subscribers'));
+Sql_query('drop table if exists ph_allowed_from');
 
 output('Sanitising USER Uniqid and UUID');
 // scramble the uniqid and wipe the uuid so that it is re-generated
@@ -40,7 +41,7 @@ Sql_Query(sprintf('update %s set uuid = "",
     subject = concat("Test Campaign Subject",id), 
     footer = "%s"',
     $GLOBALS['tables']['message'], sql_escape($footer)));
-Sql_Query(sprintf('delete from %s where name in ("notify_start","notify_end","followupto","sendurl")',$GLOBALS['tables']['messagedata']));
+Sql_Query(sprintf('delete from %s where name in ("notify_start","notify_end","followupto","sendurl", "testtarget")',$GLOBALS['tables']['messagedata']));
 Sql_Query(sprintf('update %s set data = concat("Test Campaign",id) where name = "campaigntitle"',$GLOBALS['tables']['messagedata']));
 Sql_Query(sprintf('update %s set data = concat("Test Campaign Subject",id) where name = "subject"',$GLOBALS['tables']['messagedata']));
 Sql_Query(sprintf('update %s set data = concat("Test Campaign",id) where name = "message"',$GLOBALS['tables']['messagedata']));
@@ -155,7 +156,8 @@ output('Deleting bounces');
 Sql_Query(sprintf('delete from %s',$GLOBALS['tables']['bounce']));
 output('Deleting log');
 Sql_Query(sprintf('delete from %s',$GLOBALS['tables']['eventlog']));
-
+Sql_Query(sprintf('delete from %s',$GLOBALS['tables']['admin_attribute']));
+Sql_Query(sprintf('delete from %s',$GLOBALS['tables']['admin_password_request']));
 
 $req = Sql_Query(sprintf('select id from %s where uuid is NULL or uuid = ""', $GLOBALS['tables']['user']));
 $num = Sql_Affected_Rows();
