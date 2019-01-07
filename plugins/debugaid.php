@@ -37,7 +37,7 @@ class debugaid extends phplistPlugin {
 
   function debugaid() {
     parent::phplistplugin();
-    $this->coderoot = dirname(__FILE__).'/devaids/';
+    $this->coderoot = dirname(__FILE__).'/debugaid/';
   }
   
   function adminmenu() {
