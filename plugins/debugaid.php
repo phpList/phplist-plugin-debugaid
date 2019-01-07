@@ -1,6 +1,7 @@
 <?php
 class debugaid extends phplistPlugin {
   public $name = "Develop Aids";
+  public $description = 'Development and debugging toolbox';
   public $coderoot = "debugaid/";
   public $version= "0.0.1";
   public $authors= "Bas Ovink";
