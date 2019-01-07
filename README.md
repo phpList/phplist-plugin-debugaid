@@ -1,4 +1,3 @@
-phplist-devtools
-================
+# Developer tools plugin for phpList 3
 
-plugin for phpList to help with development
+This plugin provides a toolkit for testing features, generating dummy data, and more.
